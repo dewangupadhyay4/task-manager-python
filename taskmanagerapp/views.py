@@ -7,14 +7,17 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.permissions import IsAuthenticated
 
 class TaskListCreateView(generics.ListCreateAPIView):
     queryset=TaskManagerModel.objects.all()
     serializer_class=TaskManagerSerializer
+    permission_classes=[IsAuthenticated]
 
 class TaskRetrieveUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset=TaskManagerModel.objects.all()
     serializer_class=TaskManagerSerializer
+    permission_classes=[IsAuthenticated]
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TaskListCreateView, TaskRetrieveUpdateDelete
+from .views import TaskListCreateView, TaskRetrieveUpdateDelete, CustomAuthToken
 
 urlpatterns = [
     path('tasks/', TaskListCreateView.as_view(), name="task_list_create"),

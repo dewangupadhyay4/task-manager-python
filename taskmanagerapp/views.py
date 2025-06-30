@@ -11,7 +11,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 
 class TaskListCreateView(generics.ListCreateAPIView):
-    queryset=TaskManagerModel.objects.all()
     serializer_class=TaskManagerSerializer
     permission_classes=[IsAuthenticated]
 
@@ -22,7 +21,6 @@ class TaskListCreateView(generics.ListCreateAPIView):
         serializer.save(user=self.request.user)
 
 class TaskRetrieveUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
-    queryset=TaskManagerModel.objects.all()
     serializer_class=TaskManagerSerializer
     permission_classes=[IsAuthenticated]
 
